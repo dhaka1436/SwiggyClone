@@ -2,10 +2,9 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import resOBJ from "../utils/mockData";
 import Shimmer from "./Shimmer";
-
-// useEffect(() => {
-//   console.log("hook called");
-// }, []);
+import { Link } from "react-router-dom";
+import { RECOMMENDED_LIST } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -18,17 +17,19 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const res = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.73390&lng=76.78890&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const res = await fetch(RECOMMENDED_LIST);
     const data = await res.json();
 
     const list =
       data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
+
     setListOfRestaurants(list);
     setFilteredRest(list);
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) return <h1> You are Offline ...</h1>;
 
   return listOfRestaurants.length == 0 ? (
     <Shimmer />
@@ -72,7 +73,9 @@ const Body = () => {
 
       <div className="res-container">
         {filteredRest.map((res) => (
-          <RestaurantCard key={res.info.id} resData={res} />
+          <Link to={`/restaurants/${res.info.id}`} key={res.info.id}>
+            <RestaurantCard resData={res} />
+          </Link>
         ))}
       </div>
     </div>

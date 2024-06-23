@@ -4,7 +4,7 @@ const Error = () => {
   console.log(err);
   return (
     <>
-      <h1> {err.error.message}</h1>
+      <h1> Error here </h1>
     </>
   );
 };
