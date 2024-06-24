@@ -35,27 +35,30 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setListOfRestaurants(
-              filteredRest.filter((res) => res.info.avgRating >= 4.0)
-            );
-          }}
-        >
-          Top Rated Restaurants
-        </button>
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 p-4 flex items-center ">
+          <button
+            className="px-4 py-2 bg-gray-200 rounded-lg"
+            onClick={() => {
+              setListOfRestaurants(
+                filteredRest.filter((res) => res.info.avgRating >= 4.0)
+              );
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+        <div className="search m-4 p-4 ">
           <input
+            className="border border-solid border-black"
             type="text"
-            className="search-box"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           ></input>
           <button
+            className="px-4 py-2 m-4 bg-green-200 rounded-xl"
             onClick={() => {
               // I will need the search text from here
               // will need the value from the input boxDecorationBreak:
@@ -71,7 +74,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap justify-between">
         {filteredRest.map((res) => (
           <Link to={`/restaurants/${res.info.id}`} key={res.info.id}>
             <RestaurantCard resData={res} />
