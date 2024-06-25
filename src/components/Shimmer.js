@@ -1,18 +1,30 @@
 const Shimmer = () => {
   return (
-    <div className="shimmer-container">
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
-      <div className="shimmer-card">Cards</div>
+    <div className="flex flex-wrap justify-between">
+      <div className="w-[300px] animate-marquee h-[300px]  rounded-lg bg-gray-200  p-4 m-4 ">
+        Cards
+      </div>
+      <div className="w-[300px] animate-marquee h-[300px]  rounded-lg bg-gray-200  p-4 m-4">
+        Cards
+      </div>
+      <div className="w-[300px] animate-marquee h-[300px]  rounded-lg bg-gray-200  p-4 m-4">
+        Cards
+      </div>
+      <div className="w-[300px] animate-marquee h-[300px]  rounded-lg bg-gray-200  p-4 m-4">
+        Cards
+      </div>
+      <div className="w-[300px] animate-marquee h-[300px]  rounded-lg bg-gray-200  p-4 m-4">
+        Cards
+      </div>
+      <div className="w-[300px] animate-marquee h-[300px]  rounded-lg bg-gray-200  p-4 m-4">
+        Cards
+      </div>
+      <div className="w-[300px] animate-marquee h-[300px]  rounded-lg bg-gray-200  p-4 m-4">
+        Cards
+      </div>
+      <div className="w-[300px] animate-marquee h-[300px]  rounded-lg bg-gray-200  p-4 m-4">
+        Cards
+      </div>
     </div>
   );
 };
